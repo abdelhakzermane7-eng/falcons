@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
 import GhostCursor from '@/components/GhostCursor';
 import BubbleMenu from '@/components/BubbleMenu';
 
@@ -42,20 +43,35 @@ const menuItems = [
 
 const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(() => {
+          // Browser blocked
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     const playAudio = () => {
       if (audioRef.current) {
-        audioRef.current.play().catch(() => {
-          // Browser blocked autoplay, will try again on interaction
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(() => {
+          // Browser blocked autoplay
         });
       }
     };
 
-    // Try to play immediately
-    playAudio();
-
-    // Also try on first user interaction
+    // Try on first user interaction
     const handleInteraction = () => {
       playAudio();
       document.removeEventListener('click', handleInteraction);
@@ -128,6 +144,19 @@ const Index = () => {
         animationDuration={0.5}
         staggerDelay={0.12}
       />
+
+      {/* Audio Control Button - center top */}
+      <button
+        onClick={toggleAudio}
+        className="fixed top-8 left-1/2 -translate-x-1/2 z-[1001] w-12 h-12 md:w-14 md:h-14 rounded-full bg-card shadow-[0_4px_16px_rgba(0,0,0,0.12)] flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
+        aria-label={isPlaying ? 'إيقاف الصوت' : 'تشغيل الصوت'}
+      >
+        {isPlaying ? (
+          <Volume2 className="w-6 h-6 text-glow" />
+        ) : (
+          <VolumeX className="w-6 h-6 text-glow" />
+        )}
+      </button>
     </div>
   );
 };
