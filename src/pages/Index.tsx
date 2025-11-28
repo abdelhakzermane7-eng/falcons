@@ -3,6 +3,7 @@ import { Volume2, VolumeX } from 'lucide-react';
 import GhostCursor from '@/components/GhostCursor';
 import BubbleMenu from '@/components/BubbleMenu';
 import Lightning from '@/components/Lightning';
+import FallingText from '@/components/FallingText';
 import falconImage from '@/assets/falcon.png';
 
 const menuItems = [
@@ -183,6 +184,26 @@ const Index = () => {
             alt="Falcon" 
             className="w-64 h-auto md:w-96 lg:w-[500px] drop-shadow-[0_0_30px_rgba(34,197,94,0.5)]"
           />
+        </div>
+
+        {/* Text Content - Right side */}
+        <div className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 z-[25] max-w-md lg:max-w-lg text-right" dir="rtl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-[0_0_20px_rgba(34,197,94,0.5)]">
+            فريق فالكون الرياضي
+          </h2>
+          <div className="h-48 md:h-64">
+            <FallingText
+              text="نحن نصنع روح التحدي و نبني فريقا يجمع المهارة . الشغف . الطموح . القوة"
+              highlightWords={["المهارة", "الشغف", "الطموح", "القوة"]}
+              highlightClass="text-glow font-bold"
+              trigger="scroll"
+              backgroundColor="transparent"
+              wireframes={false}
+              gravity={0.56}
+              fontSize="1.25rem"
+              mouseConstraintStiffness={0.9}
+            />
+          </div>
         </div>
       </section>
     </div>
