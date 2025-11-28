@@ -93,7 +93,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background">
+    <div className="relative w-full bg-background">
       {/* Background Audio */}
       <audio
         ref={audioRef}
@@ -102,21 +102,6 @@ const Index = () => {
         preload="auto"
       />
 
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-      >
-        <source src="/videos/background.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Gradient Overlay for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/40" style={{ zIndex: 1 }} />
-      
       {/* Ghost Cursor Effect - covers entire page */}
       <GhostCursor
         color="#4ade80"
@@ -160,8 +145,26 @@ const Index = () => {
         )}
       </button>
 
-      {/* Lightning Section - appears on scroll */}
-      <section className="relative min-h-screen w-full" style={{ zIndex: 15 }}>
+      {/* Hero Section - First screen with video background */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+        >
+          <source src="/videos/background.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Gradient Overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/40" style={{ zIndex: 1 }} />
+      </section>
+
+      {/* Lightning Section - appears when scrolling down */}
+      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 15 }}>
         {/* Lightning Effect - Dark Green */}
         <div className="absolute inset-0">
           <Lightning
