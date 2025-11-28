@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import GhostCursor from '@/components/GhostCursor';
 import BubbleMenu from '@/components/BubbleMenu';
+import Lightning from '@/components/Lightning';
+import falconImage from '@/assets/falcon.png';
 
 const menuItems = [
   {
@@ -157,6 +159,29 @@ const Index = () => {
           <VolumeX className="w-6 h-6 text-glow" />
         )}
       </button>
+
+      {/* Lightning Section - appears on scroll */}
+      <section className="relative min-h-screen w-full" style={{ zIndex: 15 }}>
+        {/* Lightning Effect - Dark Green */}
+        <div className="absolute inset-0">
+          <Lightning
+            hue={140}
+            xOffset={0.3}
+            speed={0.8}
+            intensity={1.2}
+            size={1}
+          />
+        </div>
+        
+        {/* Falcon Image - Left side */}
+        <div className="absolute left-4 md:left-16 top-1/2 -translate-y-1/2 z-10">
+          <img 
+            src={falconImage} 
+            alt="Falcon" 
+            className="w-64 h-auto md:w-96 lg:w-[500px] drop-shadow-[0_0_30px_rgba(34,197,94,0.5)]"
+          />
+        </div>
+      </section>
     </div>
   );
 };
