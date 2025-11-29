@@ -3,42 +3,42 @@ import { Volume2, VolumeX } from 'lucide-react';
 import GhostCursor from '@/components/GhostCursor';
 import BubbleMenu from '@/components/BubbleMenu';
 import Lightning from '@/components/Lightning';
-import FallingText from '@/components/FallingText';
+
 import falconImage from '@/assets/falcon.png';
 
 const menuItems = [
   {
-    label: 'home',
+    label: 'البداية',
     href: '#',
-    ariaLabel: 'Home',
+    ariaLabel: 'البداية',
     rotation: -8,
     hoverStyles: { bgColor: '#22c55e', textColor: '#ffffff' }
   },
   {
-    label: 'about',
+    label: 'FalconCraftX',
     href: '#about',
-    ariaLabel: 'About',
+    ariaLabel: 'FalconCraftX',
     rotation: 8,
     hoverStyles: { bgColor: '#16a34a', textColor: '#ffffff' }
   },
   {
-    label: 'projects',
+    label: 'Falkano',
     href: '#projects',
-    ariaLabel: 'Projects',
+    ariaLabel: 'Falkano',
     rotation: 8,
     hoverStyles: { bgColor: '#15803d', textColor: '#ffffff' }
   },
   {
-    label: 'blog',
+    label: 'Ai',
     href: '#blog',
-    ariaLabel: 'Blog',
+    ariaLabel: 'Ai',
     rotation: 8,
     hoverStyles: { bgColor: '#166534', textColor: '#ffffff' }
   },
   {
-    label: 'contact',
+    label: 'الذكريات',
     href: '#contact',
-    ariaLabel: 'Contact',
+    ariaLabel: 'الذكريات',
     rotation: -8,
     hoverStyles: { bgColor: '#14532d', textColor: '#ffffff' }
   }
@@ -187,23 +187,13 @@ const Index = () => {
         </div>
 
         {/* Text Content - Right side */}
-        <div className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 z-[25] max-w-md lg:max-w-lg text-right" dir="rtl">
+        <div className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 z-[1010] max-w-md lg:max-w-lg text-right" dir="rtl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-[0_0_20px_rgba(34,197,94,0.5)]">
             فريق فالكون الرياضي
           </h2>
-          <div className="h-48 md:h-64">
-            <FallingText
-              text="نحن نصنع روح التحدي و نبني فريقا يجمع المهارة . الشغف . الطموح . القوة"
-              highlightWords={["المهارة", "الشغف", "الطموح", "القوة"]}
-              highlightClass="text-glow font-bold"
-              trigger="scroll"
-              backgroundColor="transparent"
-              wireframes={false}
-              gravity={0.56}
-              fontSize="1.25rem"
-              mouseConstraintStiffness={0.9}
-            />
-          </div>
+          <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+            نحن نصنع روح التحدي و نبني فريقا يجمع <span className="text-glow font-bold">المهارة</span> . <span className="text-glow font-bold">الشغف</span> . <span className="text-glow font-bold">الطموح</span> . <span className="text-glow font-bold">القوة</span>
+          </p>
         </div>
       </section>
     </div>
