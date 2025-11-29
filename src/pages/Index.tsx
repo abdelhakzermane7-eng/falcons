@@ -3,8 +3,10 @@ import { Volume2, VolumeX } from 'lucide-react';
 import GhostCursor from '@/components/GhostCursor';
 import BubbleMenu from '@/components/BubbleMenu';
 import Lightning from '@/components/Lightning';
+import LaserFlow from '@/components/LaserFlow';
 
 import falconImage from '@/assets/falcon.png';
+import falkonOwlImage from '@/assets/falkon-owl.png';
 
 const menuItems = [
   {
@@ -194,6 +196,30 @@ const Index = () => {
           <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
             نحن نصنع روح التحدي و نبني فريقا يجمع <span className="text-glow font-bold">المهارة</span> . <span className="text-glow font-bold">الشغف</span> . <span className="text-glow font-bold">الطموح</span> . <span className="text-glow font-bold">القوة</span>
           </p>
+        </div>
+      </section>
+
+      {/* LaserFlow Section - Bottom section */}
+      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 15 }}>
+        {/* LaserFlow Effect - Green */}
+        <div className="absolute inset-0">
+          <LaserFlow
+            horizontalBeamOffset={0.1}
+            verticalBeamOffset={0.0}
+            color="#22c55e"
+            flowSpeed={0.35}
+            wispDensity={1.2}
+            fogIntensity={0.5}
+          />
+        </div>
+        
+        {/* Owl Image - Right side bottom */}
+        <div className="absolute right-4 md:right-16 bottom-16 z-10">
+          <img 
+            src={falkonOwlImage} 
+            alt="Falcon Owl" 
+            className="w-64 h-auto md:w-80 lg:w-[450px] drop-shadow-[0_0_40px_rgba(34,197,94,0.6)]"
+          />
         </div>
       </section>
     </div>
