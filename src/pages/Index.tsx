@@ -6,6 +6,7 @@ import Lightning from '@/components/Lightning';
 import LaserFlow from '@/components/LaserFlow';
 
 import falconImage from '@/assets/falcon.png';
+import falconRevealImage from '@/assets/falcon-reveal.png';
 
 const menuItems = [
   {
@@ -47,6 +48,7 @@ const menuItems = [
 
 const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const revealImgRef = useRef<HTMLImageElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleAudio = () => {
@@ -199,21 +201,62 @@ const Index = () => {
       </section>
 
       {/* LaserFlow Section - Bottom section */}
-      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 25 }}>
+      <section 
+        className="relative min-h-screen w-full overflow-hidden"
+        style={{ zIndex: 25, backgroundColor: '#030a02' }}
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const el = revealImgRef.current;
+          if (el) {
+            el.style.setProperty('--mx', `${x}px`);
+            el.style.setProperty('--my', `${y + rect.height * 0.5}px`);
+          }
+        }}
+        onMouseLeave={() => {
+          const el = revealImgRef.current;
+          if (el) {
+            el.style.setProperty('--mx', '-9999px');
+            el.style.setProperty('--my', '-9999px');
+          }
+        }}
+      >
         {/* Overlay to block GhostCursor in this section */}
-        <div className="absolute inset-0 bg-black" style={{ zIndex: 21 }} />
+        <div className="absolute inset-0" style={{ zIndex: 21, backgroundColor: '#030a02' }} />
         
-        {/* LaserFlow Effect - Green */}
+        {/* LaserFlow Effect - Dark Green */}
         <div className="absolute inset-0" style={{ zIndex: 22 }}>
           <LaserFlow
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
-            color="#22c55e"
+            color="#166534"
             flowSpeed={0.35}
             wispDensity={1.2}
             fogIntensity={0.5}
           />
         </div>
+
+        {/* Falcon Image with Interactive Reveal Effect */}
+        <img
+          ref={revealImgRef}
+          src={falconRevealImage}
+          alt="Falcon Reveal"
+          className="absolute w-full pointer-events-none"
+          style={{
+            top: '-50%',
+            zIndex: 23,
+            mixBlendMode: 'lighten',
+            opacity: 0.4,
+            // @ts-ignore
+            '--mx': '-9999px',
+            '--my': '-9999px',
+            WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 80px, rgba(255,255,255,0.6) 160px, rgba(255,255,255,0.25) 240px, rgba(255,255,255,0) 320px)',
+            maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 80px, rgba(255,255,255,0.6) 160px, rgba(255,255,255,0.25) 240px, rgba(255,255,255,0) 320px)',
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat'
+          } as React.CSSProperties}
+        />
       </section>
     </div>
   );
