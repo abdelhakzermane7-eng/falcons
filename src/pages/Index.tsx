@@ -6,7 +6,80 @@ import Lightning from '@/components/Lightning';
 import LaserFlow from '@/components/LaserFlow';
 
 import falconImage from '@/assets/falcon.png';
-import falkonOwlImage from '@/assets/falkon-owl.png';
+
+// LaserFlow Section Component with Interactive Reveal Effect
+const LaserFlowSection = () => {
+  const revealImgRef = useRef<HTMLImageElement>(null);
+
+  return (
+    <section
+      className="relative min-h-screen w-full overflow-hidden"
+      style={{ backgroundColor: '#060010', zIndex: 15 }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const el = revealImgRef.current;
+        if (el) {
+          el.style.setProperty('--mx', `${x}px`);
+          el.style.setProperty('--my', `${y + rect.height * 0.5}px`);
+        }
+      }}
+      onMouseLeave={() => {
+        const el = revealImgRef.current;
+        if (el) {
+          el.style.setProperty('--mx', '-9999px');
+          el.style.setProperty('--my', '-9999px');
+        }
+      }}
+    >
+      <LaserFlow
+        horizontalBeamOffset={0.1}
+        verticalBeamOffset={0.0}
+        color="#FF79C6"
+      />
+      
+      <div
+        className="absolute flex items-center justify-center text-white text-2xl"
+        style={{
+          top: '50%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '86%',
+          height: '60%',
+          backgroundColor: '#060010',
+          borderRadius: '20px',
+          border: '2px solid #FF79C6',
+          zIndex: 6
+        }}
+      >
+        {/* Your content here */}
+      </div>
+
+      <img
+        ref={revealImgRef}
+        src={falconImage}
+        alt="Reveal effect"
+        style={{
+          position: 'absolute',
+          width: '100%',
+          top: '-50%',
+          zIndex: 5,
+          mixBlendMode: 'lighten',
+          opacity: 0.3,
+          pointerEvents: 'none',
+          // @ts-ignore
+          '--mx': '-9999px',
+          '--my': '-9999px',
+          WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
+          maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat'
+        } as React.CSSProperties}
+      />
+    </section>
+  );
+};
 
 const menuItems = [
   {
@@ -105,22 +178,24 @@ const Index = () => {
         preload="auto"
       />
 
-      {/* Ghost Cursor Effect - covers entire page */}
-      <GhostCursor
-        color="#4ade80"
-        brightness={1.2}
-        edgeIntensity={0}
-        trailLength={50}
-        inertia={0.5}
-        grainIntensity={0.05}
-        bloomStrength={0.15}
-        bloomRadius={1.2}
-        bloomThreshold={0.02}
-        fadeDelayMs={1000}
-        fadeDurationMs={1500}
-        zIndex={20}
-        style={{ position: 'fixed', inset: 0 }}
-      />
+      {/* Ghost Cursor Effect - covers first two sections only */}
+      <div className="absolute top-0 left-0 w-full" style={{ height: '200vh', zIndex: 20, pointerEvents: 'none' }}>
+        <GhostCursor
+          color="#4ade80"
+          brightness={1.2}
+          edgeIntensity={0}
+          trailLength={50}
+          inertia={0.5}
+          grainIntensity={0.05}
+          bloomStrength={0.15}
+          bloomRadius={1.2}
+          bloomThreshold={0.02}
+          fadeDelayMs={1000}
+          fadeDurationMs={1500}
+          zIndex={20}
+          style={{ position: 'absolute', inset: 0, pointerEvents: 'auto' }}
+        />
+      </div>
       
       {/* Bubble Menu - on top of everything */}
       <BubbleMenu
@@ -200,28 +275,7 @@ const Index = () => {
       </section>
 
       {/* LaserFlow Section - Bottom section */}
-      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 15 }}>
-        {/* LaserFlow Effect - Green */}
-        <div className="absolute inset-0">
-          <LaserFlow
-            horizontalBeamOffset={0.1}
-            verticalBeamOffset={0.0}
-            color="#22c55e"
-            flowSpeed={0.35}
-            wispDensity={1.2}
-            fogIntensity={0.5}
-          />
-        </div>
-        
-        {/* Owl Image - Right side bottom */}
-        <div className="absolute right-4 md:right-16 bottom-16 z-10">
-          <img 
-            src={falkonOwlImage} 
-            alt="Falcon Owl" 
-            className="w-64 h-auto md:w-80 lg:w-[450px] drop-shadow-[0_0_40px_rgba(34,197,94,0.6)]"
-          />
-        </div>
-      </section>
+      <LaserFlowSection />
     </div>
   );
 };
