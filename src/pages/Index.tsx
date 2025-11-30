@@ -6,7 +6,6 @@ import Lightning from '@/components/Lightning';
 import LaserFlow from '@/components/LaserFlow';
 
 import falconImage from '@/assets/falcon.png';
-import falkonOwlImage from '@/assets/falkon-owl.png';
 
 const menuItems = [
   {
@@ -200,9 +199,12 @@ const Index = () => {
       </section>
 
       {/* LaserFlow Section - Bottom section */}
-      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 15 }}>
+      <section className="relative min-h-screen w-full overflow-hidden bg-black" style={{ zIndex: 25 }}>
+        {/* Overlay to block GhostCursor in this section */}
+        <div className="absolute inset-0 bg-black" style={{ zIndex: 21 }} />
+        
         {/* LaserFlow Effect - Green */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{ zIndex: 22 }}>
           <LaserFlow
             horizontalBeamOffset={0.1}
             verticalBeamOffset={0.0}
@@ -210,15 +212,6 @@ const Index = () => {
             flowSpeed={0.35}
             wispDensity={1.2}
             fogIntensity={0.5}
-          />
-        </div>
-        
-        {/* Owl Image - Right side bottom */}
-        <div className="absolute right-4 md:right-16 bottom-16 z-10">
-          <img 
-            src={falkonOwlImage} 
-            alt="Falcon Owl" 
-            className="w-64 h-auto md:w-80 lg:w-[450px] drop-shadow-[0_0_40px_rgba(34,197,94,0.6)]"
           />
         </div>
       </section>
