@@ -12,7 +12,7 @@ import falconTeamImage from '@/assets/falcon-team.png';
 const menuItems = [
   {
     label: 'البداية',
-    href: '#',
+    href: '/',
     ariaLabel: 'البداية',
     rotation: -8,
     hoverStyles: { bgColor: '#22c55e', textColor: '#ffffff' }
@@ -40,7 +40,7 @@ const menuItems = [
   },
   {
     label: 'الذكريات',
-    href: '#contact',
+    href: '/memories',
     ariaLabel: 'الذكريات',
     rotation: -8,
     hoverStyles: { bgColor: '#14532d', textColor: '#ffffff' }
