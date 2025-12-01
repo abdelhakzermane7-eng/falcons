@@ -237,6 +237,24 @@ const Index = () => {
           />
         </div>
 
+        {/* Content Box */}
+        <div 
+          className="absolute flex items-center justify-center text-white text-2xl"
+          style={{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '86%',
+            height: '60%',
+            backgroundColor: '#030a02',
+            borderRadius: '20px',
+            border: '2px solid #166534',
+            zIndex: 24
+          }}
+        >
+          {/* محتوى الصندوق هنا */}
+        </div>
+
         {/* Falcon Image with Interactive Reveal Effect */}
         <img
           ref={revealImgRef}
