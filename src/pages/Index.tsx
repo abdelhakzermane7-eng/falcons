@@ -7,6 +7,7 @@ import LaserFlow from '@/components/LaserFlow';
 
 import falconImage from '@/assets/falcon.png';
 import falconRevealImage from '@/assets/falcon-reveal.png';
+import falconTeamImage from '@/assets/falcon-team.png';
 
 const menuItems = [
   {
@@ -239,7 +240,7 @@ const Index = () => {
 
         {/* Content Box - Below LaserFlow */}
         <div 
-          className="absolute flex items-center justify-center text-white text-2xl"
+          className="absolute flex flex-col items-center justify-end pb-8"
           style={{
             top: '50%',
             left: '50%',
@@ -252,7 +253,11 @@ const Index = () => {
             zIndex: 20
           }}
         >
-          {/* محتوى الصندوق هنا */}
+          <img 
+            src={falconTeamImage} 
+            alt="Team Falcons" 
+            className="max-w-[80%] max-h-[70%] object-contain drop-shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+          />
         </div>
 
         {/* Falcon Image with Interactive Reveal Effect */}
