@@ -238,7 +238,7 @@ const Index = () => {
           />
         </div>
 
-        {/* Content Box - Below LaserFlow */}
+        {/* Content Box - Above LaserFlow */}
         <div 
           className="absolute flex flex-col items-center justify-end pb-8"
           style={{
@@ -247,10 +247,10 @@ const Index = () => {
             transform: 'translate(-50%, -50%)',
             width: '86%',
             height: '60%',
-            backgroundColor: '#030a02',
+            backgroundColor: 'transparent',
             borderRadius: '20px',
             border: '2px solid #166534',
-            zIndex: 20
+            zIndex: 30
           }}
         >
           <img 
