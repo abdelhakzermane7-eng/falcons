@@ -237,7 +237,7 @@ const Index = () => {
           />
         </div>
 
-        {/* Content Box */}
+        {/* Content Box - Below LaserFlow */}
         <div 
           className="absolute flex items-center justify-center text-white text-2xl"
           style={{
@@ -249,7 +249,7 @@ const Index = () => {
             backgroundColor: '#030a02',
             borderRadius: '20px',
             border: '2px solid #166534',
-            zIndex: 24
+            zIndex: 20
           }}
         >
           {/* محتوى الصندوق هنا */}
