@@ -238,27 +238,13 @@ const Index = () => {
           />
         </div>
 
-        {/* Content Box - Above LaserFlow */}
-        <div 
-          className="absolute flex flex-col items-center justify-end pb-8"
-          style={{
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '86%',
-            height: '60%',
-            backgroundColor: 'transparent',
-            borderRadius: '20px',
-            border: '2px solid #166534',
-            zIndex: 30
-          }}
-        >
-          <img 
-            src={falconTeamImage} 
-            alt="Team Falcons" 
-            className="max-w-[80%] max-h-[70%] object-contain drop-shadow-[0_0_20px_rgba(34,197,94,0.3)]"
-          />
-        </div>
+        {/* Team Falcons Image - Bottom */}
+        <img 
+          src={falconTeamImage} 
+          alt="Team Falcons" 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl object-contain drop-shadow-[0_0_30px_rgba(34,197,94,0.4)]"
+          style={{ zIndex: 30 }}
+        />
 
         {/* Falcon Image with Interactive Reveal Effect */}
         <img
