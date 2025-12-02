@@ -83,7 +83,9 @@ const Memories = () => {
       <DomeGallery
         images={galleryImages}
         overlayBlurColor="#030a02"
-        grayscale={false}
+        grayscale={true}
+        fit={0.75}
+        minRadius={700}
         imageBorderRadius="20px"
         openedImageBorderRadius="20px"
         openedImageWidth="500px"
