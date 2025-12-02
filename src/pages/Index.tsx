@@ -19,7 +19,7 @@ const menuItems = [
   },
   {
     label: 'FalconCraftX',
-    href: '#about',
+    href: '/falconcraftx',
     ariaLabel: 'FalconCraftX',
     rotation: 8,
     hoverStyles: { bgColor: '#16a34a', textColor: '#ffffff' }
