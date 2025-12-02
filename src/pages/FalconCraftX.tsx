@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import BubbleMenu from '@/components/BubbleMenu';
 import BounceCards from '@/components/BounceCards';
+import PixelTrail from '@/components/PixelTrail';
 
 import card1 from '@/assets/falconcraftx/card-1.png';
 import card2 from '@/assets/falconcraftx/card-2.png';
@@ -123,12 +124,24 @@ const FalconCraftX = () => {
         className="relative w-full min-h-screen flex flex-col items-center justify-center py-20"
         style={{ zIndex: 10 }}
       >
+        {/* PixelTrail Effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-auto" style={{ zIndex: 5 }}>
+          <PixelTrail
+            gridSize={50}
+            trailSize={0.1}
+            maxAge={250}
+            interpolate={5}
+            color="#14532d"
+            gooeyFilter={{ id: "pixel-goo-filter", strength: 2 }}
+          />
+        </div>
+
         {/* Title */}
         <h2 
-          className="text-4xl md:text-5xl font-bold text-white mb-16 text-center"
+          className="text-4xl md:text-5xl font-bold text-white mb-16 text-center relative z-10"
           style={{ textShadow: '0 0 20px rgba(34, 197, 94, 0.5)' }}
         >
-          مصور فالكون - أفضل صورة
+          كل اسبوع افضل صورة داخل مدينة فالكون
         </h2>
 
         {/* BounceCards */}
