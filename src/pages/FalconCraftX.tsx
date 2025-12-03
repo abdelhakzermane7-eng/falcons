@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import BubbleMenu from '@/components/BubbleMenu';
 import BounceCards from '@/components/BounceCards';
 import PixelTrail from '@/components/PixelTrail';
+import Stack from '@/components/Stack';
 
 import card1 from '@/assets/falconcraftx/card-1.png';
 import card2 from '@/assets/falconcraftx/card-2.png';
 import card3 from '@/assets/falconcraftx/card-3.png';
 import card4 from '@/assets/falconcraftx/card-4.png';
 import card5 from '@/assets/falconcraftx/card-5.png';
+import flauncherxIcon from '@/assets/flauncherx-icon.png';
 
 const menuItems = [
   {
@@ -57,16 +59,28 @@ const transformStyles = [
   "rotate(-8deg) translate(320px)"
 ];
 
+const stackImages = [
+  { id: 1, img: flauncherxIcon },
+  { id: 2, img: flauncherxIcon },
+  { id: 3, img: flauncherxIcon },
+  { id: 4, img: flauncherxIcon }
+];
+
 const FalconCraftX = () => {
   const [showCards, setShowCards] = useState(false);
+  const [showStack, setShowStack] = useState(false);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !showCards) {
+          if (entry.target === cardsRef.current && entry.isIntersecting && !showCards) {
             setShowCards(true);
+          }
+          if (entry.target === stackRef.current && entry.isIntersecting && !showStack) {
+            setShowStack(true);
           }
         });
       },
@@ -76,9 +90,12 @@ const FalconCraftX = () => {
     if (cardsRef.current) {
       observer.observe(cardsRef.current);
     }
+    if (stackRef.current) {
+      observer.observe(stackRef.current);
+    }
 
     return () => observer.disconnect();
-  }, [showCards]);
+  }, [showCards, showStack]);
 
   return (
     <div className="relative w-screen min-h-[200vh] overflow-x-hidden" style={{ backgroundColor: '#030a02' }}>
@@ -156,6 +173,38 @@ const FalconCraftX = () => {
             easeType="elastic.out(1, 0.5)"
             transformStyles={transformStyles}
             enableHover={true}
+          />
+        )}
+      </section>
+
+      {/* FLauncherX Section */}
+      <section 
+        ref={stackRef}
+        className="relative w-full min-h-screen flex flex-col items-center justify-center py-20"
+        style={{ zIndex: 10, backgroundColor: '#030a02' }}
+      >
+        {/* Title */}
+        <h2 
+          className="text-4xl md:text-6xl font-bold text-white mb-4 text-center"
+          style={{ textShadow: '0 0 30px rgba(34, 197, 94, 0.6)' }}
+        >
+          FLauncherX
+        </h2>
+        <p 
+          className="text-lg md:text-xl text-green-400 mb-16 text-center"
+          style={{ textShadow: '0 0 15px rgba(34, 197, 94, 0.4)' }}
+        >
+          راح يكون في لانشر خاص بكلان فالكون
+        </p>
+
+        {/* Stack Effect */}
+        {showStack && (
+          <Stack
+            randomRotation={true}
+            sensitivity={180}
+            sendToBackOnClick={true}
+            cardDimensions={{ width: 250, height: 250 }}
+            cardsData={stackImages}
           />
         )}
       </section>
