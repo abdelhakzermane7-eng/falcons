@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import BubbleMenu from '@/components/BubbleMenu';
 import BounceCards from '@/components/BounceCards';
-import PixelTrail from '@/components/PixelTrail';
 import Stack from '@/components/Stack';
-
+import ScrollReveal from '@/components/ScrollReveal';
 import card1 from '@/assets/falconcraftx/card-1.png';
 import card2 from '@/assets/falconcraftx/card-2.png';
 import card3 from '@/assets/falconcraftx/card-3.png';
@@ -65,6 +64,8 @@ const stackImages = [
   { id: 3, img: flauncherxIcon },
   { id: 4, img: flauncherxIcon }
 ];
+
+const flauncherFeatures = `مميزات FlauncherX واجهة جميلة مناسبة لكلان فالكون فيها اللغة العربية تقدر تنزل مودات و ريسورس باكس و الخ ..... من داخل اللانشر نفسه واجهة سهلة لكل مستخدم اما المستخدم المحترف او المبتدئ تقدر تنقل عالمك من اي نسخة اللعبة داخل لانشر و تعدل عليه تقدر تسوي لقطة شاشة في لانشر تقدر تغير سكينك داخل لانشر تقدر تدخل اي سيرفر ماينكرافت بكل سهولة لانشر مناسب للاجهزة الضعيفة بدون مشاكل و اذا في لاق تقدر تتحكم من استهلاك لانشر و تخليه ابطئ على جهازك و المزيد .......`;
 
 const FalconCraftX = () => {
   const [showCards, setShowCards] = useState(false);
@@ -141,18 +142,6 @@ const FalconCraftX = () => {
         className="relative w-full min-h-screen flex flex-col items-center justify-center py-20"
         style={{ zIndex: 10 }}
       >
-        {/* PixelTrail Effect */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-auto" style={{ zIndex: 5 }}>
-          <PixelTrail
-            gridSize={50}
-            trailSize={0.1}
-            maxAge={250}
-            interpolate={5}
-            color="#14532d"
-            gooeyFilter={{ id: "pixel-goo-filter", strength: 2 }}
-          />
-        </div>
-
         {/* Title */}
         <h2 
           className="text-4xl md:text-5xl font-bold text-white mb-16 text-center relative z-10"
@@ -175,6 +164,20 @@ const FalconCraftX = () => {
             enableHover={true}
           />
         )}
+      </section>
+
+      {/* ScrollReveal Section */}
+      <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={5}
+          blurStrength={10}
+          containerClassName="max-w-4xl text-center"
+          textClassName="text-white text-right"
+        >
+          {flauncherFeatures}
+        </ScrollReveal>
       </section>
 
       {/* FLauncherX Section */}
