@@ -219,14 +219,14 @@ const FalconCraftX = () => {
       </section>
 
       {/* ScrollReveal Section - Features */}
-      <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
+      <section dir="rtl" className="relative w-full min-h-screen flex items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
         <ScrollReveal
           baseOpacity={0}
           enableBlur={true}
           baseRotation={3}
           blurStrength={8}
           containerClassName="max-w-3xl"
-          textClassName="text-white text-right text-base md:text-lg leading-loose whitespace-pre-line"
+          textClassName="text-white text-base md:text-lg leading-loose whitespace-pre-line"
         >
           {flauncherFeatures}
         </ScrollReveal>
