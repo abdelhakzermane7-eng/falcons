@@ -109,9 +109,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
-    </h2>
+    <div ref={containerRef} className={`my-5 ${containerClassName}`}>
+      <p className={`leading-[2] font-medium ${textClassName}`}>{splitText}</p>
+    </div>
   );
 };
 

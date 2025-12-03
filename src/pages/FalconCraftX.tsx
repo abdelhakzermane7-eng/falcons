@@ -65,7 +65,27 @@ const stackImages = [
   { id: 4, img: flauncherxIcon }
 ];
 
-const flauncherFeatures = `مميزات FlauncherX واجهة جميلة مناسبة لكلان فالكون فيها اللغة العربية تقدر تنزل مودات و ريسورس باكس و الخ ..... من داخل اللانشر نفسه واجهة سهلة لكل مستخدم اما المستخدم المحترف او المبتدئ تقدر تنقل عالمك من اي نسخة اللعبة داخل لانشر و تعدل عليه تقدر تسوي لقطة شاشة في لانشر تقدر تغير سكينك داخل لانشر تقدر تدخل اي سيرفر ماينكرافت بكل سهولة لانشر مناسب للاجهزة الضعيفة بدون مشاكل و اذا في لاق تقدر تتحكم من استهلاك لانشر و تخليه ابطئ على جهازك و المزيد .......`;
+const flauncherFeatures = `مميزات FlauncherX
+
+واجهة جميلة مناسبة لكلان فالكون
+
+فيها اللغة العربية
+
+تقدر تنزل مودات و ريسورس باكس و الخ ..... من داخل اللانشر نفسه
+
+واجهة سهلة لكل مستخدم اما المستخدم المحترف او المبتدئ
+
+تقدر تنقل عالمك من اي نسخة اللعبة داخل لانشر و تعدل عليه
+
+تقدر تسوي لقطة شاشة في لانشر
+
+تقدر تغير سكينك داخل لانشر
+
+تقدر تدخل اي سيرفر ماينكرافت بكل سهولة
+
+لانشر مناسب للاجهزة الضعيفة بدون مشاكل و اذا في لاق تقدر تتحكم من استهلاك لانشر و تخليه ابطئ على جهازك
+
+و المزيد .......`;
 
 const FalconCraftX = () => {
   const [showCards, setShowCards] = useState(false);
@@ -166,20 +186,6 @@ const FalconCraftX = () => {
         )}
       </section>
 
-      {/* ScrollReveal Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
-        <ScrollReveal
-          baseOpacity={0}
-          enableBlur={true}
-          baseRotation={5}
-          blurStrength={10}
-          containerClassName="max-w-4xl text-center"
-          textClassName="text-white text-right"
-        >
-          {flauncherFeatures}
-        </ScrollReveal>
-      </section>
-
       {/* FLauncherX Section */}
       <section 
         ref={stackRef}
@@ -210,6 +216,20 @@ const FalconCraftX = () => {
             cardsData={stackImages}
           />
         )}
+      </section>
+
+      {/* ScrollReveal Section - Features */}
+      <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={3}
+          blurStrength={8}
+          containerClassName="max-w-3xl"
+          textClassName="text-white text-right text-base md:text-lg leading-loose whitespace-pre-line"
+        >
+          {flauncherFeatures}
+        </ScrollReveal>
       </section>
     </div>
   );
