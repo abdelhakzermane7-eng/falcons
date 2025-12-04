@@ -3,12 +3,14 @@ import BubbleMenu from '@/components/BubbleMenu';
 import BounceCards from '@/components/BounceCards';
 import Stack from '@/components/Stack';
 import ScrollReveal from '@/components/ScrollReveal';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import card1 from '@/assets/falconcraftx/card-1.png';
 import card2 from '@/assets/falconcraftx/card-2.png';
 import card3 from '@/assets/falconcraftx/card-3.png';
 import card4 from '@/assets/falconcraftx/card-4.png';
 import card5 from '@/assets/falconcraftx/card-5.png';
 import flauncherxIcon from '@/assets/flauncherx-icon.png';
+import discordIcon from '@/assets/discord-icon.png';
 
 const menuItems = [
   {
@@ -230,6 +232,65 @@ const FalconCraftX = () => {
         >
           {flauncherFeatures}
         </ScrollReveal>
+      </section>
+
+      {/* FAQ Section */}
+      <section dir="rtl" className="relative w-full min-h-screen flex flex-col items-center justify-center py-20 px-8" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">الأسئلة الشائعة</h2>
+        <Accordion type="single" collapsible className="w-full max-w-3xl">
+          <AccordionItem value="item-1" className="border-green-900/50">
+            <AccordionTrigger className="text-white text-right text-lg hover:text-green-400">
+              هل لانشر متاح للجميع ؟
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-300 text-right leading-relaxed">
+              لا FlauncherX متاح بس لاعضاء فالكون يلي مدة دخولهم فوق 3 اشهر , لو الشخص كان في فالكون و طلع راح يعيد من الصفر , و كل عضو راح يكون عنده id خاص به عشان يقدر يدخل FlauncherX
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-2" className="border-green-900/50">
+            <AccordionTrigger className="text-white text-right text-lg hover:text-green-400">
+              هل لانشر يدعم النسخة المكركة من لعبة ماينكرافت ؟
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-300 text-right leading-relaxed">
+              لا , FlauncherX ما يدعم نسخة المكركة من اللعبة , اولا الكراك حرام , ثانيا تسبب اضرار في جهازك , اخيرا مخالفة لشروط اللعبة
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-3" className="border-green-900/50">
+            <AccordionTrigger className="text-white text-right text-lg hover:text-green-400">
+              متى يصدر لانشر ؟
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-300 text-right leading-relaxed">
+              راح يصدر في سنة 1447 هجري بالميلادي 2026 , مافي وقت محدد او شهر محدد , راح يتم اعلانه في قسم الاخبار في كلان فالكون
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-4" className="border-green-900/50">
+            <AccordionTrigger className="text-white text-right text-lg hover:text-green-400">
+              على اي انظمة تشغيل راح يكون FLauncherX ؟
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-300 text-right leading-relaxed">
+              راح يكون على على انظمة التشغيل Linux , Windows , Mac OS
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
+      {/* Discord Section */}
+      <section className="relative w-full py-20 px-8 flex flex-col items-center justify-center" style={{ zIndex: 10, backgroundColor: '#030a02' }}>
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">انضم الان</h3>
+        <a 
+          href="https://discord.com/invite/banderitax" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="transition-transform hover:scale-110"
+        >
+          <img 
+            src={discordIcon} 
+            alt="Discord" 
+            className="w-24 h-24 md:w-32 md:h-32 rounded-2xl"
+          />
+        </a>
       </section>
     </div>
   );
