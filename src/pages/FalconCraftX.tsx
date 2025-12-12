@@ -36,7 +36,7 @@ const menuItems = [
   },
   {
     label: 'Ai',
-    href: '#ai',
+    href: '/ai',
     ariaLabel: 'Ai',
     rotation: -6,
     hoverStyles: { bgColor: '#22c55e', textColor: '#000000' }
